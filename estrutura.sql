@@ -1,0 +1,28 @@
+CREATE TABLE admin (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  senha VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE quiz (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  pergunta TEXT NOT NULL,
+  opcao_a VARCHAR(255) NOT NULL,
+  opcao_b VARCHAR(255) NOT NULL,
+  opcao_c VARCHAR(255) NOT NULL,
+  opcao_d VARCHAR(255) NOT NULL,
+  opcao_e VARCHAR(255) NOT NULL,
+  resposta_correta CHAR(1) NOT NULL
+);
+
+CREATE TABLE jogadores (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE pontuacoes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  jogador_id INT,
+  pontuacao INT DEFAULT 0,
+  FOREIGN KEY (jogador_id) REFERENCES jogadores(id)
+);
